@@ -1,0 +1,13 @@
+{
+    "prueb": {
+        "method":"POST",
+        "url":"POST",
+        "headers":{
+            "Content-Type": "text/html",  
+            "aut": "BeUser1"  
+        },
+        "body": {},
+        "status": 200,
+        "response":{}
+    }
+}
