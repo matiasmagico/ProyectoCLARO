@@ -1,13 +1,16 @@
 {
-    "prueb": {
-        "method":"POST",
-        "url":"POST",
-        "headers":{
-            "Content-Type": "text/html",  
-            "aut": "BeUser1"  
-        },
+    "Prueb": {
+        "method":"GET",
+        "url":"https://api.thecatapi.com/v1/images/search",
+        "headers":{},
         "body": {},
         "status": 200,
-        "response":{}
-    }
+        "response":
+            {
+                "id": "ana",
+                "url": "https://cdn2.thecatapi.com/images/ana.jpg",
+                "width": 500,
+                "height": 501
+            }
+           }
 }

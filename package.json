@@ -13,5 +13,6 @@
     "@badeball/cypress-cucumber-preprocessor": "latest",
     "@cypress/browserify-preprocessor": "latest",
     "cypress": "latest"
-  }
+  },
+  "cypress-cucumber-preprocessor": {"nonGlobalStepDefinitions": false}
 }
