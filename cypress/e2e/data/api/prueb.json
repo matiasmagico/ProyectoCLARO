@@ -37,7 +37,7 @@
     "prueba5":{ 
         "method": "GET",
         "url": "https://api.thecatapi.com/v1/images/search",
-        "status": 200,
+        "status": 800,
         "response": {}
     }
 }
