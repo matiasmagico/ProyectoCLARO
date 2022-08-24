@@ -22,9 +22,18 @@ Then("vlid ue todo slio ok", () => {
   cy.request({
     method: json.prueba4.method,
     url: json.prueba4.url,
-    status: json.prueba4.status,
+    body: json.prueba4.body,
     headers: json.prueba4.headers,
+  }).then((response) => {
+    cy.log('vote id= ' + response.body.id)
+  })
 
+  cy.log('prueba5')
+  cy.request({
+    method: json.prueba5.method,
+    url: json.prueba5.url,
+    body: json.prueba5.body,
+    headers: json.prueba5.headers,
   })
 
 

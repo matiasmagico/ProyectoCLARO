@@ -12,7 +12,7 @@
         "headers": {"Content-Type": "application/json", "x-api-key": "DEMO-API-KEY"},
         "body": {
             "image_id": "9ccXTANkb",
-            "sub_id": "your-user-43234654245424234"
+            "sub_id": "your-user-432346542454"
           },
         "status": 200,
         "response": {}
@@ -26,17 +26,25 @@
     },
 
     "prueba4":{
-        "method": "DELETE",
-        "url": "https://api.thecatapi.com/v1/favourites/{favourite_id}",  
-        "headers": {"x-api-key":"$$.env.x-api-key"},
-        "status":500
+        "method": "POST",
+        "url": "https://api.thecatapi.com/v1/votes",  
+        "headers": {"Content-Type":"application/json", "x-api-key":"DEMO-API-KEY"},
+        "body":{
+            "image_id": "asf2",
+            "sub_id": "my-user-1234",
+            "value": 1
+          },
+          "status":200,
+          "response":{}
+        },
 
-    },
+    
 
 
     "prueba5":{ 
-        "method": "GET",
-        "url": "https://api.thecatapi.com/v1/images/search",
+        "method": "DELETE",
+        "url": "https://api.thecatapi.com/v1/votes/595066",
+        "headers":{"x-api-key":"DEMO-API-KEY"},
         "status": 800,
         "response": {}
     }
