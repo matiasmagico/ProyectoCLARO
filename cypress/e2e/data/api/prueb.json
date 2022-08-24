@@ -1,16 +1,43 @@
 {
-    "Prueb": {
-        "method":"GET",
-        "url":"https://api.thecatapi.com/v1/images/search",
-        "headers":{},
-        "body": {},
+    "prueba":{ 
+        "method": "GET",
+        "url": "https://api.thecatapi.com/v1/images/search",
         "status": 200,
-        "response":
-            {
-                "id": "ana",
-                "url": "https://cdn2.thecatapi.com/images/ana.jpg",
-                "width": 500,
-                "height": 501
-            }
-           }
+        "response": {}
+    },
+
+    "prueba2":{ 
+        "method": "POST",
+        "url": "https://api.thecatapi.com/v1/favourites",
+        "headers": {"Content-Type": "application/json", "x-api-key": "DEMO-API-KEY"},
+        "body": {
+            "image_id": "9ccXTANkb",
+            "sub_id": "your-user-43234654245424234"
+          },
+        "status": 200,
+        "response": {}
+    },
+
+    "prueba3":{ 
+        "method": "GET",
+        "url": "https://api.thecatapi.com/v1/images/search",
+        "status": 666,
+        "response": {}
+    },
+
+    "prueba4":{
+        "method": "DELETE",
+        "url": "https://api.thecatapi.com/v1/favourites/{favourite_id}",  
+        "headers": {"x-api-key":"$$.env.x-api-key"},
+        "status":500
+
+    },
+
+
+    "prueba5":{ 
+        "method": "GET",
+        "url": "https://api.thecatapi.com/v1/images/search",
+        "status": 200,
+        "response": {}
+    }
 }
