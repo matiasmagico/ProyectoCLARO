@@ -9,13 +9,14 @@
     "prueba2":{ 
         "method": "POST",
         "url": "https://api.thecatapi.com/v1/favourites",
-        "headers": {"Content-Type": "application/json", "x-api-key": "DEMO-API-KEY"},
+        "headers": {"Content-Type": "application/json"},
         "body": {
-            "image_id": "9ccXTANkb",
-            "sub_id": "your-user-432346542454"
-          },
+            "Validate-bussiness":{
+                "billNumber":"string"
+            }
+        },
         "status": 200,
-        "response": {}
+        "response": {"tipo":"string"}
     },
 
     "prueba3":{ 

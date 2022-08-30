@@ -1,40 +1,79 @@
-const { When, Then } = require("@badeball/cypress-cucumber-preprocessor");
-const json = require("../e2e/data/api/prueb")
+const { When, Then, Given } = require("@badeball/cypress-cucumber-preprocessor");
+const json = require("../e2e/data/api/prueb.json")
 
-When("el usurio", () => {
+/*function moviloFijo(condicion) {
 
-  cy.log(json.prueba.method)
-  cy.log(json.prueba.url)
-  cy.log(json.prueba3.status)
-  cy.log(json.prueba4.method)
-  cy.log(json.prueba4.url)
-  cy.log(json.prueba4.headers)
+
+
+if (condicion === "movil"){
+
+return "MOVIL"}
+
+if (condicion === "fijo"){
+return "FIJO"
+   } else {
+    return "ERROR"
+   }
+ }
+
+Given("un {'string'} de telefono", () => {
+
 })
 
-Then("vlid ue todo slio ok", () => {
-  cy.log('prueba')
-  cy.request({
-    method: json.prueba.method,
-    url: json.prueba.url
-  })
+When("el usuario consulta un {'string'} de telefono", () => {
 
-  cy.log('prueba4')
-  cy.request({
-    method: json.prueba4.method,
-    url: json.prueba4.url,
-    body: json.prueba4.body,
-    headers: json.prueba4.headers,
-  }).then((response) => {
-    cy.log('vote id= ' + response.body.id)
-  })
 
-  cy.log('prueba5')
+})
+
+Then("validar {'string'} de tal numero", () =>{
+
+})*/
+
+
+
+When("el usuario requiere una api {string} {string}", (prueba, condicion) => {
+
+  cy.log(json.prueba2.body["Validate-bussiness"].billNumber)
+  json.prueba2.body["Validate-bussiness"].billNumber = prueba
+  cy.log(json.prueba2.body["Validate-bussiness"].billNumber)
+  cy.log(json.prueba2.body["Validate-bussiness"])
+  cy.log(json.prueba2.body)
+
+  cy.log(json.prueba2.response.tipo)
+  json.prueba2.response.tipo = condicion
+
+  cy.expect(response.body).to.equal(json.prueba2.response.tipo)
+})
+
+/*Then("validar que todo salio ok", () => {
+  cy.log('claroapi')
   cy.request({
-    method: json.prueba5.method,
-    url: json.prueba5.url,
-    body: json.prueba5.body,
-    headers: json.prueba5.headers,
-  })
+    id: json.id,
+    url: json.url,
+  })*/
+
+
+  /*cy.log('prueba4')
+  cy.request({
+    method: json.id,
+    url: json.url,
+    body:
+    headers
+  }).*/
+  /*then((response) => {
+    cy.log('vote id= ' + response.body.tipo)*/
+    //cy.expect(response.status).to.equal(json.prueba2.response.status)
+    //cy.expect(response.body).to.equal(json.prueba2.response.tipo)
+  //})
+  //})
+
+  //cy.log('prueba5')
+  //cy.request({
+    //method: json.prueba5.method,
+    //url: json.prueba5.url,
+    //body: json.prueba5.body,
+    //headers: json.prueba5.headers,
+  //})
 
 
   cy.log('prueb2')
@@ -50,5 +89,5 @@ Then("vlid ue todo slio ok", () => {
     expect(response.body).to.have.property('id')
     cy.log(response.body.id)
   })
-});
+;
 
