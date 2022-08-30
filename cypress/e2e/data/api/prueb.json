@@ -3,6 +3,7 @@
 
    //https://teams.microsoft.com/_#/conversations/19:meeting_MzRkZDk5YzItMzU1Yi00YjE2LTgwMTUtYTM4ZDQ2Mjg5OGFi@thread.v2?ctx=chat
    //https://app-portabilidad-portabilidad-ar.apps.osen02.claro.amx/swagger-ui.html#/portabilidad-controller/getPortingRangesUsingPOST
+   //http://savigne.claro.amx:8080/browse/PACT-4186
 
     "prueba":{ 
         "method": "GET",
