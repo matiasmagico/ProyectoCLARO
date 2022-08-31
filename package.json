@@ -1,18 +1,22 @@
 {
-  "name": "rest-api-testing",
-  "version": "1.0.0",
-  "description": "",
+  "name": "cypress-cucumber-boilerplate",
+  "version": "2.0.0",
+  "description": "This project is meant to be a kind of template to start working with Cucumber and Cypress just cloning the project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:runner": "cypress open",
+    "cypress:execution": "cypress run"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cypress"
+  ],
+  "author": "cucumber",
   "license": "ISC",
-  "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "latest",
-    "@cypress/browserify-preprocessor": "latest",
-    "cypress": "latest"
-  },
-  "cypress-cucumber-preprocessor": {"nonGlobalStepDefinitions": false}
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^12.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.3",
+    "cypress": "^10.4.0",
+    "esbuild": "^0.14.48",
+    "multiple-cucumber-html-reporter": "^1.21.4"
+  }
 }
