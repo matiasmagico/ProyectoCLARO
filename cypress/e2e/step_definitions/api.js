@@ -5,36 +5,43 @@ const data = require("../../fixtures/API.json")
 Then("el usuario desea validar la {string} del {string}", (condicion, numero) => {
 
   cy.log("Configuramos los valores a utilizar")
-  data["validate-bussines"].request.body.cellularNumber = numero
+  data["validate-business"].request.body.cellularNumber = numero
 
   if(numero === "NULL"){
-    data["validate-bussines"].response.status = 400
+    cy.log("numero = NULL")
+    data["validate-business"].response.status = 400
     data["validate-bussines"].request.body.cellularNumber = null
   }
 
   if(condicion === "ERROR"){
-    data["validate-bussines"].response.body.businessValidateResponse = null
+    cy.log("condicion = Error")
+    data["validate-business"].response.body.business = null
   }else{
-    data["validate-bussines"].response.body.businessValidateResponse = condicion
-    data["validate-bussines"].response.body.error = null
+    cy.log("else")
+    data["validate-business"].response.body.business = condicion
+    data["validate-business"].response.body.error = null
   }
 
-  /*cy.log("url: " + data["validate-bussines"].request.url)
-  cy.log("headers: " + data["validate-bussines"].request.headers["Content-Type"])
-  cy.log("method: " + data["validate-bussines"].request.method)
-  cy.log("body: " + data["validate-bussines"].request.body.cellularNumber)
-  cy.log("status: " + data["validate-bussines"].response.status)
-  cy.log("body: " + data["validate-bussines"].response.body.businessValidateResponse)
-  cy.log("body: " + data["validate-bussines"].response.body.error)*/
+  cy.log("request")
+  cy.log("url: " + data["validate-business"].request.url)
+  cy.log("headers: " + data["validate-business"].request.headers["Content-Type"])
+  cy.log("method: " + data["validate-business"].request.method)
+  cy.log("body: " + data["validate-business"].request.body.cellularNumber)
+  cy.log("response")
+  cy.log("status: " + data["validate-business"].response.status)
+  cy.log("business: " + data["validate-business"].response.body.business)
+  cy.log("error: " + data["validate-business"].response.body.error)
 
   cy.request({
-    url: data["validate-bussines"].request.url,
-    headers: data["validate-bussines"].request.headers,
-    method: data["validate-bussines"].request.method,
-    body: data["validate-bussines"].request.body
+    url: data["validate-business"].request.url,
+    headers: data["validate-business"].request.headers,
+    method: data["validate-business"].request.method,
+    body: data["validate-business"].request.body
   }).then((response) => {
-    expect(response.status).to.eq(data["validate-bussines"].response.status)
-    expect(response.body.businessValidateResponse).to.eq(data["validate-bussines"].response.body.businessValidateResponse)
-    cy.log("Mensaje de error: " + response.body.error)
+    cy.log("body completo b")
+    cy.log(response.body)
+    expect(response.status).to.eq(data["validate-business"].response.status)
+    //expect(response.body.business).to.eq(data["validate-business"].response.body.business)
+    cy.log(response.body.error)
   })
 })
