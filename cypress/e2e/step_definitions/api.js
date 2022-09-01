@@ -1,64 +1,40 @@
 const { When, Then, Given } = require("@badeball/cypress-cucumber-preprocessor");
-const json = require("../e2e/data/api/prueb.json")
+const data = require("../../fixtures/API.json")
 
 
-When("el usuario requiere una api {string} {string}", (prueba, condicion) => {
+Then("el usuario desea validar la {string} del {string}", (condicion, numero) => {
 
-  cy.log(json.prueba2.body["Validate-bussiness"].billNumber)
-  json.prueba2.body["Validate-bussiness"].billNumber = prueba
-  cy.log(json.prueba2.body["Validate-bussiness"].billNumber)
-  cy.log(json.prueba2.body["Validate-bussiness"])
-  cy.log(json.prueba2.body)
+  cy.log("Configuramos los valores a utilizar")
+  data["validate-bussines"].request.body.cellularNumber = numero
 
-  cy.log(json.prueba2.response.tipo)
-  json.prueba2.response.tipo = condicion
+  if(numero === "NULL"){
+    data["validate-bussines"].response.status = 400
+    data["validate-bussines"].request.body.cellularNumber = null
+  }
 
-  cy.expect(response.body).to.equal(json.prueba2.response.tipo)
-})
+  if(condicion === "ERROR"){
+    data["validate-bussines"].response.body.businessValidateResponse = null
+  }else{
+    data["validate-bussines"].response.body.businessValidateResponse = condicion
+    data["validate-bussines"].response.body.error = null
+  }
 
-Then("validar que todo salio ok", () => {
-  cy.log('claroapi')
+  /*cy.log("url: " + data["validate-bussines"].request.url)
+  cy.log("headers: " + data["validate-bussines"].request.headers["Content-Type"])
+  cy.log("method: " + data["validate-bussines"].request.method)
+  cy.log("body: " + data["validate-bussines"].request.body.cellularNumber)
+  cy.log("status: " + data["validate-bussines"].response.status)
+  cy.log("body: " + data["validate-bussines"].response.body.businessValidateResponse)
+  cy.log("body: " + data["validate-bussines"].response.body.error)*/
+
   cy.request({
-    id: json.id,
-    url: json.url,
-  });
-})
-
-  cy.log('prueba4')
-  cy.request({
-    method: json.id,
-    url: json.url,
-    body:
-    headers
-  });
-then((response) => {
-    cy.log('vote id= ' + response.body.tipo)
-    cy.expect(response.status).to.equal(json.prueba2.status)
-    cy.expect(response.body).to.equal(json.prueba2.response.tipo)
-  })
-  
-
-  cy.log('prueba5')
-  cy.request({
-    method: json.prueba5.method,
-    url: json.prueba5.url,
-    body: json.prueba5.body,
-    headers: json.prueba5.headers,
-   })
-
-
-  cy.log('prueb2')
-  cy.request({
-    method: json.prueba2.method,
-    url: json.prueba2.url,
-    headers: json.prueba2.headers,
-    body: json.prueba2.body
+    url: data["validate-bussines"].request.url,
+    headers: data["validate-bussines"].request.headers,
+    method: data["validate-bussines"].request.method,
+    body: data["validate-bussines"].request.body
   }).then((response) => {
-    cy.log(response.body)
-    expect(response.status).to.eq(200)
-    expect(response.body).to.have.property('message', 'SUCCESS')
-    expect(response.body).to.have.property('id')
-    cy.log(response.body.id)
+    expect(response.status).to.eq(data["validate-bussines"].response.status)
+    expect(response.body.businessValidateResponse).to.eq(data["validate-bussines"].response.body.businessValidateResponse)
+    cy.log("Mensaje de error: " + response.body.error)
   })
-;
-
+})

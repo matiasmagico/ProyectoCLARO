@@ -1,21 +1,11 @@
-Feature: numeros de telefono
- # Scenario Outline: validacion de numero de telefono
-    
-  #  Given un <numero> de telefono
-   # When el usuario consulta un <numero> de telefono
-    #Then validar <condicion> de tal numero
+Feature: Validacion Servicios
 
-   # Examples:
-    #    | numero     | condicion |
-     #   | 3412410001 | fijo      |
-      #  | 3425460001 | movil     |
-       #|    -       | error     |
-
-  Scenario Outline: modificas valor desde json
-        When el usuario requiere una api "<numero>"
+  Scenario Outline: Validate-Bussines
+        Then el usuario desea validar la "<condicion>" del "<numero>" 
 
         Examples:
-       | numero     | condicion |
-       | 3412410001 | fijo      |
-       | 3425460001 | movil     |
-       |    -       | error     |
+       | numero                                                               | condicion |
+       | 3412419999                                                           | FIJO      |
+       | 3425469999                                                           | MOVIL     |
+       | pruebaconletras                                                      | ERROR     |
+       | 9086930485690348509348590348093859034859034859083405983490583490850  | ERROR     |
