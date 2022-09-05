@@ -13,6 +13,10 @@
     "response":{
       "status": 200,
       "body":{
+        "error": null,
+        "business": null
+      },
+      "default":{
         "error": "La linea consultada no es valida",
         "business": null
       }
