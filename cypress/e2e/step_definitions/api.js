@@ -1,5 +1,4 @@
-const { When, Then, Given } = require("@badeball/cypress-cucumber-preprocessor");
-const { error } = require("cypress/types/jquery");
+import { Then } from "@badeball/cypress-cucumber-preprocessor"
 const data = require("../../fixtures/API.json")
 
 
@@ -47,7 +46,7 @@ Then("el usuario desea validar la {string} del {string}", (condicion, numero) =>
   })
 })
 
-Then ("si el responce da ERROR emitir mensaje de error.", ()=> {
+Then("si el responce da ERROR emitir mensaje de error", ()=> {
   
   cy.log(response.body)
   if (response.body === error)
