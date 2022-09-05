@@ -2,6 +2,7 @@ Feature: Validacion Servicios
 
   Scenario Outline: Validate-Bussines
         Then el usuario desea validar la "<condicion>" del "<numero>" 
+        Then si el responce da ERROR emitir mensaje de error.
 
         Examples:
        | numero                                                               | condicion |
