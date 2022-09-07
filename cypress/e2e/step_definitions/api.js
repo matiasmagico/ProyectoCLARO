@@ -1,4 +1,5 @@
-import { Then } from "@badeball/cypress-cucumber-preprocessor"
+import { Given,When,Then } from "@badeball/cypress-cucumber-preprocessor"
+import { method } from "cypress/types/bluebird"
 var data = require("../../fixtures/API.json")
 const dataenviroment = require("../../fixtures/dataenviroment/dev.json") 
 
@@ -32,3 +33,25 @@ cy.log(data["validate-business"].response.status)
     }
   })
 })
+
+Given('una lista de usuarios'); () => {
+  const listaUsuarios = 'endpoint'
+  const numerodeusuario = ''
+
+
+  When('consulto por el CRM de uno de esos'); () => {  
+  cy.request({
+    url: 'endpoint',
+    headers:{},
+    method:{},
+    body:{}
+  })
+
+Then('valido en que CRM se encuentra ese numero'); () => {
+  if { expect(numerodeusuario)to.be(exist) 
+  
+       cy.response(STL);}
+  } else {
+       cy.response(SAP)
+ }
+} 
