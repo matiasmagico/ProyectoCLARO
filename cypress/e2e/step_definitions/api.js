@@ -1,9 +1,8 @@
 import { Given,When,Then } from "@badeball/cypress-cucumber-preprocessor"
-import { method } from "cypress/types/bluebird"
 var data = require("../../fixtures/API.json")
 const dataenviroment = require("../../fixtures/dataenviroment/dev.json") 
 
-Then("el usuario desea validar la {string} del {string}", (condicion, numero) => {
+/*Then("el usuario desea validar la {string} del {string}", (condicion, numero) => {
   cy.log("Configuramos los valores a utilizar ")
   data["validate-business"].request.body.billNumber = numero
 
@@ -34,24 +33,25 @@ cy.log(data["validate-business"].response.status)
   })
 })
 
-Given('una lista de usuarios'); () => {
+Given('una lista de usuarios', () => {
   const listaUsuarios = 'endpoint'
   const numerodeusuario = ''
+})
 
-
-  When('consulto por el CRM de uno de esos'); () => {  
+When('consulto por el CRM de uno de esos', () => {  
   cy.request({
     url: 'endpoint',
     headers:{},
     method:{},
     body:{}
   })
+})*/
 
-Then('valido en que CRM se encuentra ese numero'); () => {
-  if { expect(numerodeusuario)to.be(exist) 
-  
-       cy.response(STL);}
-  } else {
-       cy.response(SAP)
- }
-} 
+Then('valido en que CRM se encuentra ese numero', () => {
+  const SQL_NOT_ON_STORE_STATUS = "SELECT prg_type_number FROM PORT_PORTING_RANGES";
+  cy.task("sqlQuery", SQL_NOT_ON_STORE_STATUS).then((resolvedValue) => {
+    resolvedValue["rows"].forEach((item) => {
+      cy.log("result==>" + item);
+    })
+  })
+})
