@@ -1,6 +1,6 @@
-import { Given,When,Then } from "@badeball/cypress-cucumber-preprocessor"
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
 var data = require("../../fixtures/API.json")
-const dataenviroment = require("../../fixtures/dataenviroment/dev.json") 
+const dataenviroment = require("../../fixtures/dataenviroment/dev.json")
 
 /*Then("el usuario desea validar la {string} del {string}", (condicion, numero) => {
   cy.log("Configuramos los valores a utilizar ")
@@ -47,11 +47,33 @@ When('consulto por el CRM de uno de esos', () => {
   })
 })*/
 
-Then('valido en que CRM se encuentra ese numero', () => {
-  const SQL_NOT_ON_STORE_STATUS = "SELECT prg_type_number FROM PORT_PORTING_RANGES";
+Then('valido en que CRM se encuentra ese {string}', (cellnumber) => {
+  const SQL_NOT_ON_STORE_STATUS = "SELECT CLU_CELLULAR_NUMBER, CLU_BILL_NUMBER FROM CELLULARS WHERE CLU_CELLULAR_NUMBER = " + cellnumber;
   cy.task("sqlQuery", SQL_NOT_ON_STORE_STATUS).then((resolvedValue) => {
-    resolvedValue["rows"].forEach((item) => {
-      cy.log("result==>" + item);
+
+    cy.log("Configuramos los valores a utilizar ")
+    data["validateCRM"].request.body.portCellularNumber = cellnumber
+
+    if (!numero) {
+      data["validateCRM"].response.status = 400
+    }
+    cy.request({
+      url: data["validateCRM"].request.url,
+      headers: data["validateCRM"].request.headers,
+      method: data["validateCRM"].request.method,
+      body: JSON.stringify(data["validateCRM"].request.body),
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(data["validateCRM"].response.status)
+      if (response.status === 200) {
+        resolvedValue["rows"].forEach((item) => {
+          if (!item === null) {
+            expect(response.body).to.eq('STL')
+          } else {
+            expect(response.body).to.eq('SAP')
+          }
+        })
+      }
     })
   })
 })

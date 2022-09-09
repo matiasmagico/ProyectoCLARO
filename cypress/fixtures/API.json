@@ -21,5 +21,20 @@
         "business": null
       }
     }
+  },
+  "validateCRM": {
+    "request": {
+      "url": "https://manager-fija-service-portabilidad-ar.apps.osen02.claro.amx/managerFija/validateCrm",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "portCellularNumber": "string"
+      }
+    },
+    "response":{
+      "status": 200
+    }
   }
 }

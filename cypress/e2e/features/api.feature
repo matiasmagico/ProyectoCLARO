@@ -12,8 +12,13 @@ Feature: Validacion Servicios
       # |                                                                      | NULL      |
 
 
-  Scenario:  Validar línea CRM
+  Scenario Outline:  Validar línea CRM
 
        #Given una lista de usuarios
        #When consulto por el CRM de uno de esos
-       Then valido en que CRM se encuentra ese numero     
+       Then valido en que CRM se encuentra ese <numero>
+
+       Examples:
+       | numero         | condicion |
+       | 0000000164     | FIJO      |
+       | 00000001644353 | MOVIL     |

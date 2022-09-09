@@ -51,9 +51,9 @@ const queryData = async(query, dbconfig) => {
 module.exports = defineConfig({
   env: {
     db: {
-        "user": "stl",
-        "password": "stl",
-        "connectString" : "bengolea.claro.amx:1521/ardprod"
+        "user": "EXC74115",
+        "password": "Viernes13",
+        "connectString" : "miledeo.claro.amx:1521/artprod"
     }
   },
   e2e: {
