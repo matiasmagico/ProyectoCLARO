@@ -1,0 +1,7 @@
+{
+    "validatebusiness":"https://validate-business-portabilidad-ar-desa.apps.osen02.claro.amx/validate-business/portingRanges",
+    
+    "validateCrm": "https://manager-fija-service-portabilidad-ar.apps.osen02.claro.amx/managerFija/validateCrm",
+    
+    "validate_user_structure_gpe":"https://act-validations-activaciones-ar-desa.apps.osen02.claro.amx/activation-validations/validate_user_structure_gpe"
+}

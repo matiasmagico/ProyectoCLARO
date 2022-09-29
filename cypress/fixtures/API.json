@@ -1,7 +1,7 @@
 {
   "validate-business": {
     "request": {
-      "url": "https://validate-business-portabilidad-ar-desa.apps.osen02.claro.amx/validate-business/portingRanges",
+
       "method": "POST",
       "headers": {
         "Content-Type": "application/json"
@@ -10,31 +10,54 @@
         "billNumber": "numeroCelular"
       }
     },
-    "response":{
+    "response": {
       "status": 200,
-      "body":{
+      "body": {
         "error": null,
         "business": null
       },
-      "default":{
+      "default": {
         "error": "La linea consultada no es valida",
         "business": null
       }
     }
   },
-  "validateCRM": {
+  "validateCrm": {
     "request": {
-      "url": "https://manager-fija-service-portabilidad-ar.apps.osen02.claro.amx/managerFija/validateCrm",
+
       "method": "POST",
       "headers": {
         "Content-Type": "application/json"
       },
       "body": {
-        "portCellularNumber": "string"
+        "portCellularNumber": "number"
       }
     },
-    "response":{
-      "status": 200
+    "response": {
+      "status": 200,
+      "body": {}
+    }
+  },
+  
+  "validate_user_structure_gpe": {
+    "request": {
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "sryEntId": "",
+        "usrCanId": "",
+        "usrCentralizing": "",
+        "usrEntID": "",
+        "usrLeg": "",
+        "usrTentId": "",
+        "usrUsp": ""
+      }
+    },
+    "response": {
+      "resultViewGPE": "string"
     }
   }
 }
+

@@ -51,9 +51,9 @@ const queryData = async(query, dbconfig) => {
 module.exports = defineConfig({
   env: {
     db: {
-        "user": "EXC74115",
-        "password": "Viernes13",
-        "connectString" : "miledeo.claro.amx:1521/artprod"
+        "user": "stl",
+        "password": "stl",
+        "connectString" : "bengolea.claro.amx:1521/ardprod"
     }
   },
   e2e: {
@@ -64,7 +64,7 @@ module.exports = defineConfig({
       on("task", {
         sqlQuery: (query) => {
           return queryData(query, config.env.db);
-        },
+        }
       });
 
       on("file:preprocessor", bundler);
